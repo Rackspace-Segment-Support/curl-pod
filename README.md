@@ -1,4 +1,4 @@
 # curl-pod
 ```bash
-kubectl apply -f curl-pod.yaml
+kubectl apply -f kubernetes/curl-pod.yaml
 ```

@@ -1,0 +1,10 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/monplat-jenkins/curl-pod:latest', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/monplat-jenkins/curl-pod']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/salus-220516/curl-pod:latest', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/salus-220516/curl-pod']
+images: ['gcr.io/monplat-jenkins/curl-pod:latest','gcr.io/salus-220516/curl-pod:latest']
