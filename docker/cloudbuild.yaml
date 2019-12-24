@@ -1,10 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/monplat-jenkins/curl-pod:latest', '.']
+  args: ['build', '-t', 'gcr.io/monplat-jenkins/curl-pod:latest', 'docker', '-t', 'gcr.io/monplat-jenkins/curl-pod:$SHORT_SHA']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/monplat-jenkins/curl-pod']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/salus-220516/curl-pod:latest', '.']
+  args: ['build', '-t', 'gcr.io/salus-220516/curl-pod:latest', 'docker', '-t', 'gcr.io/salus-220516/curl-pod:$SHORT_SHA']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/salus-220516/curl-pod']
-images: ['gcr.io/monplat-jenkins/curl-pod:latest','gcr.io/salus-220516/curl-pod:latest']
+images: ['gcr.io/monplat-jenkins/curl-pod:latest','gcr.io/salus-220516/curl-pod:latest','gcr.io/monplat-jenkins/curl-pod:$SHORT_SHA','gcr.io/salus-220516/curl-pod:$SHORT_SHA']
