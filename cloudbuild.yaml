@@ -1,0 +1,6 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/salus-220516/curl-pod:latest', '-t', 'gcr.io/salus-220516/curl-pod:$SHORT_SHA', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/salus-220516/curl-pod']
+images: ['gcr.io/salus-220516/curl-pod:latest','gcr.io/salus-220516/curl-pod:$SHORT_SHA']
