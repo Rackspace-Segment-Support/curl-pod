@@ -15,8 +15,10 @@ RUN \
   apt-get install -y build-essential && \
   apt-get install -y software-properties-common && \
   apt-get install -y byobu curl git htop man unzip vim wget netcat dnsutils iputils-* && \
-  apt-get install -y python3 jq && \
+  apt-get install -y python3 python3-pip jq && \
+  python3 -m pip install elasticsearch-curator && \
   rm -rf /var/lib/apt/lists/*
+
 
 # Set environment variables.
 ENV HOME /root
