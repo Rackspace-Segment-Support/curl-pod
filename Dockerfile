@@ -7,6 +7,10 @@
 # Pull base image.
 FROM ubuntu:latest
 
+# Set TZ info
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=America/Chicago
+
 # Install.
 RUN \
   sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
